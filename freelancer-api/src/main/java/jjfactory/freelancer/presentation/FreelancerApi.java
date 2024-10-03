@@ -1,6 +1,7 @@
 package jjfactory.freelancer.presentation;
 
 import jjfactory.freelancer.application.FreelancerFacade;
+import jjfactory.freelancer.common.response.ApiResponse;
 import jjfactory.freelancer.domain.FreelancerCommand;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,8 +17,8 @@ public class FreelancerApi {
     private final FreelancerMapper freelancerMapper;
 
     @PostMapping
-    public Long join(@RequestBody FreelancerDto.Create dto) {
+    public ApiResponse<Long> join(@RequestBody FreelancerDto.Create dto) {
         FreelancerCommand.Create command = freelancerMapper.convert(dto);
-        return freelancerFacade.join(command);
+        return new ApiResponse<>(freelancerFacade.join(command));
     }
 }
