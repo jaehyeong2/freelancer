@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_DATABASE: freelancer_local
+      MYSQL_USER: freelancer_local
+      MYSQL_PASSWORD: freelancer_local
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    networks:
+      - freelancer_network
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: redis:latest
+    networks:
+      - freelancer_network
+    ports:
+      - "6379:6379"
+
+volumes:
+  mariadb_data:
+
+networks:
+  freelancer_network:
+    driver: bridge
