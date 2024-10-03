@@ -2,3 +2,4 @@ rootProject.name = 'freelancer'
 
 include 'core'
 include 'client-api'
+include 'freelancer-api'

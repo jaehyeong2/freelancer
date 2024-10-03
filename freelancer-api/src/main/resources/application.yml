@@ -1,0 +1,27 @@
+spring:
+
+  # profile
+  profiles:
+    group:
+      production:
+        - production
+      develop:
+        - develop
+      local:
+        - local
+      default: local
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+aws:
+  sesv2:
+    region: ap-northeast-2
+
+springdoc:
+  use-fqn: true
+
+#server:
+#  forward-headers-strategy: native
