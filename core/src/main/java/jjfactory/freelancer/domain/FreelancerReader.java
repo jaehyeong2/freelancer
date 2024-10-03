@@ -3,8 +3,10 @@ package jjfactory.freelancer.domain;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-public interface FreelancerService {
-    Long store(FreelancerCommand.Create command);
+import java.util.Optional;
 
+public interface FreelancerReader {
+    Optional<Freelancer> findById(Long id);
+    Freelancer findByIdOrThrow(Long id);
     Page<FreelancerInfo.Detail> findPage(Pageable pageable);
 }

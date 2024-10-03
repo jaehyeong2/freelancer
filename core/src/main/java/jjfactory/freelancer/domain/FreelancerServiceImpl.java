@@ -2,6 +2,8 @@ package jjfactory.freelancer.domain;
 
 import jjfactory.freelancer.infrastructure.FreelancerRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -9,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class FreelancerServiceImpl implements FreelancerService {
     private final FreelancerRepository freelancerRepository;
+    private final FreelancerReader freelancerReader;
 
     @Transactional
     @Override
@@ -16,5 +19,11 @@ public class FreelancerServiceImpl implements FreelancerService {
         Freelancer initEntity = command.toEntity();
 
         return freelancerRepository.save(initEntity).getId();
+    }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Page<FreelancerInfo.Detail> findPage(Pageable pageable){
+        return freelancerReader.findPage(pageable);
     }
 }

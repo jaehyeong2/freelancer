@@ -1,7 +1,10 @@
 package jjfactory.freelancer.application;
 
+import jjfactory.freelancer.domain.FreelancerInfo;
 import jjfactory.freelancer.domain.FreelancerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 @RequiredArgsConstructor
@@ -9,5 +12,7 @@ import org.springframework.stereotype.Component;
 public class FreelancerFacade {
     private final FreelancerService freelancerService;
 
-
+    public Page<FreelancerInfo.Detail> findFreelancerPage(Pageable pageable){
+        return freelancerService.findPage(pageable);
+    }
 }
