@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class FreelancerApi {
     private final FreelancerFacade freelancerFacade;
 
-
     @GetMapping
     public PageResponse<FreelancerInfo.Detail> findFreelancers(@PageableDefault Pageable pageable){
         return new PageResponse<>(freelancerFacade.findFreelancerPage(pageable), pageable);

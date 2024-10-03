@@ -15,6 +15,7 @@ import java.util.Optional;
 @Component
 public class FreelancerReaderImpl implements FreelancerReader {
     private final FreelancerRepository freelancerRepository;
+    private final FreelancerDslRepository freelancerDslRepository;
     @Override
     public Optional<Freelancer> findById(Long id) {
         return freelancerRepository.findById(id);
@@ -27,6 +28,6 @@ public class FreelancerReaderImpl implements FreelancerReader {
 
     @Override
     public Page<FreelancerInfo.Detail> findPage(Pageable pageable) {
-        return null;
+        return freelancerDslRepository.getFreelancers(pageable);
     }
 }

@@ -1,18 +1,23 @@
 version: '3.8'
 
 services:
-  mariadb:
-    image: mariadb:latest
-    environment:
-      MYSQL_DATABASE: freelancer_local
-      MYSQL_USER: freelancer_local
-      MYSQL_PASSWORD: freelancer_local
-    volumes:
-      - mariadb_data:/var/lib/mysql
-    networks:
-      - freelancer_network
+  maria:
+    image: docker.io/bitnami/mariadb:10.6
+    container_name: mariadb
     ports:
-      - "3306:3306"
+      - "3307:3306"
+    volumes:
+      - ~/docker/mariadb/etc/mysql/conf.d:/etc/mysql/conf.d:ro
+      - ~/docker/mariadb/var/lib/mysql:/var/lib/mysql
+      - ~/docker/mariadb/var/log/maria:/var/log/maria
+    environment:
+      - TZ="Asia/Seoul"
+      - ALLOW_EMPTY_PASSWORD=no
+      - MARIADB_ROOT_PASSWORD=qwe1212!Q
+      - MARIADB_DATABASE=freelancer_local
+      - MARIADB_USER=freelancer_local
+      - MARIADB_PASSWORD=freelancer_local
+    restart: always
 
   redis:
     image: redis:latest
