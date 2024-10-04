@@ -23,7 +23,7 @@ public class FreelancerServiceImpl implements FreelancerService {
 
     @Transactional(readOnly = true)
     @Override
-    public Page<FreelancerInfo.Detail> findPage(Pageable pageable){
+    public Page<FreelancerInfo.List> findPage(Pageable pageable){
         return freelancerReader.findPage(pageable);
     }
 }

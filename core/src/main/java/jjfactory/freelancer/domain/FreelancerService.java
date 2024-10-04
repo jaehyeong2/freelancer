@@ -6,5 +6,5 @@ import org.springframework.data.domain.Pageable;
 public interface FreelancerService {
     Long store(FreelancerCommand.Create command);
 
-    Page<FreelancerInfo.Detail> findPage(Pageable pageable);
+    Page<FreelancerInfo.List> findPage(Pageable pageable);
 }

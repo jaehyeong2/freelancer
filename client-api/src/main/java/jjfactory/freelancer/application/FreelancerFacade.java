@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class FreelancerFacade {
     private final FreelancerService freelancerService;
 
-    public Page<FreelancerInfo.Detail> findFreelancerPage(Pageable pageable){
+    public Page<FreelancerInfo.List> findFreelancerPage(Pageable pageable){
         return freelancerService.findPage(pageable);
     }
 }

@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface FreelancerReader {
     Optional<Freelancer> findById(Long id);
     Freelancer findByIdOrThrow(Long id);
-    Page<FreelancerInfo.Detail> findPage(Pageable pageable);
+    Page<FreelancerInfo.List> findPage(Pageable pageable);
 }

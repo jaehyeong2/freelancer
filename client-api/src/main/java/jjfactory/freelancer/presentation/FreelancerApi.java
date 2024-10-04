@@ -17,7 +17,7 @@ public class FreelancerApi {
     private final FreelancerFacade freelancerFacade;
 
     @GetMapping
-    public PageResponse<FreelancerInfo.Detail> findFreelancers(@PageableDefault Pageable pageable){
+    public PageResponse<FreelancerInfo.List> findFreelancers(@PageableDefault Pageable pageable){
         return new PageResponse<>(freelancerFacade.findFreelancerPage(pageable), pageable);
     }
 }

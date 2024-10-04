@@ -24,6 +24,7 @@ public class Freelancer {
     private String lastName;
     private String firstName;
     private String phone;
+    private Long viewCount;
 
     @CreationTimestamp
     private LocalDateTime createdAt;

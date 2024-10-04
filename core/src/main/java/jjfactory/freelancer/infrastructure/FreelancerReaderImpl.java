@@ -27,7 +27,7 @@ public class FreelancerReaderImpl implements FreelancerReader {
     }
 
     @Override
-    public Page<FreelancerInfo.Detail> findPage(Pageable pageable) {
+    public Page<FreelancerInfo.List> findPage(Pageable pageable) {
         return freelancerDslRepository.getFreelancers(pageable);
     }
 }
