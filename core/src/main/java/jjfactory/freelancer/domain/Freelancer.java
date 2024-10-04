@@ -35,7 +35,7 @@ public class Freelancer {
     private LocalDateTime exposedAt;
 
     @Builder
-    public Freelancer(String lastName, String firstName, String phone, LocalDateTime createdAt, LocalDateTime updatedAt, boolean isExposed, LocalDateTime exposedAt) {
+    public Freelancer(String lastName, String firstName, String phone, LocalDateTime createdAt, LocalDateTime updatedAt, boolean isExposed, LocalDateTime exposedAt, Long viewCount) {
         this.lastName = lastName;
         this.firstName = firstName;
         this.phone = phone;
@@ -43,6 +43,7 @@ public class Freelancer {
         this.updatedAt = updatedAt;
         this.isExposed = isExposed;
         this.exposedAt = exposedAt;
+        this.viewCount = viewCount;
     }
 
     public String getKoreanName(){

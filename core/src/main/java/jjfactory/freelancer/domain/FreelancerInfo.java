@@ -32,5 +32,9 @@ public class FreelancerInfo {
         private String firstName;
         private Long viewCount;
         private LocalDateTime exposedAt;
+
+        public String getKoreanName(){
+            return lastName + firstName;
+        }
     }
 }
