@@ -32,4 +32,14 @@ class FreelancerTest {
         assertThat(freelancer.getExposedAt()).isNotNull();
     }
 
+    @DisplayName("expose하지 않으면 조회 시도시 익셉션이 발생한다")
+    @Test
+    public void checkViewable(){
+        Freelancer freelancer = Freelancer.builder().lastName("lee")
+                .firstName("jj")
+                .build();
+
+        assertThatThrownBy(freelancer::checkViewable).isInstanceOf(FreelancerNotExposedException.class);
+    }
+
 }

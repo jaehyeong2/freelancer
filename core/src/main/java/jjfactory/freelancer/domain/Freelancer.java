@@ -54,4 +54,12 @@ public class Freelancer {
         isExposed = true;
         exposedAt = LocalDateTime.now();
     }
+
+    public void checkViewable(){
+        if (notExposed()) throw new FreelancerNotExposedException();
+    }
+
+    private boolean notExposed(){
+        return !this.isExposed;
+    }
 }

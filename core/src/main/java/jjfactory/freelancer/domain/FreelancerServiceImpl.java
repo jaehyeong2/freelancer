@@ -26,4 +26,20 @@ public class FreelancerServiceImpl implements FreelancerService {
     public Page<FreelancerInfo.List> findPage(Pageable pageable){
         return freelancerReader.findPage(pageable);
     }
+
+
+    @Transactional(readOnly = true)
+    @Override
+    public FreelancerInfo.Detail findById(Long id){
+        Freelancer freelancer = freelancerReader.findByIdOrThrow(id);
+        freelancer.checkViewable();
+
+        return FreelancerInfo.Detail.builder()
+                .lastName(freelancer.getLastName())
+                .firstName(freelancer.getFirstName())
+                .exposedAt(freelancer.getExposedAt())
+                .viewCount(freelancer.getViewCount())
+                .phone(freelancer.getPhone())
+                .build();
+    }
 }
