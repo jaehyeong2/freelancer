@@ -6,6 +6,7 @@ import jjfactory.freelancer.domain.FreelancerNotFoundException;
 import jjfactory.freelancer.domain.FreelancerReader;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
@@ -28,6 +29,12 @@ public class FreelancerReaderImpl implements FreelancerReader {
 
     @Override
     public Page<FreelancerInfo.List> findPage(Pageable pageable) {
-        return freelancerDslRepository.getFreelancers(pageable);
+        return freelancerDslRepository.getFreelancerInfoPages(pageable);
+    }
+
+    @Override
+    public Page<Freelancer> findTopFreelancersByViewCount(int limit) {
+        Pageable pageable = PageRequest.of(0, limit);
+        return freelancerRepository.findAllByOrderByViewCountDesc(pageable);
     }
 }

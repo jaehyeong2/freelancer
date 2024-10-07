@@ -74,7 +74,7 @@ class FreelancerDslRepositoryTest {
     @Test
     void getFreelancers() {
         PageRequest pageable = PageRequest.of(0, 10, Sort.by(Sort.Order.asc("name")));
-        Page<FreelancerInfo.List> page = freelancerDslRepository.getFreelancers(pageable);
+        Page<FreelancerInfo.List> page = freelancerDslRepository.getFreelancerInfoPages(pageable);
 
         List<FreelancerInfo.List> freelancers = page.getContent();
         assertThat(freelancers).hasSize(3);
@@ -84,7 +84,7 @@ class FreelancerDslRepositoryTest {
     @Test
     void sortByNameAsc() {
         PageRequest pageable = PageRequest.of(0, 10, Sort.by(Sort.Order.asc("name")));
-        Page<FreelancerInfo.List> page = freelancerDslRepository.getFreelancers(pageable);
+        Page<FreelancerInfo.List> page = freelancerDslRepository.getFreelancerInfoPages(pageable);
 
         List<FreelancerInfo.List> freelancers = page.getContent();
 
@@ -98,7 +98,7 @@ class FreelancerDslRepositoryTest {
     @Test
     void sortByViewCountDesc() {
         PageRequest pageable = PageRequest.of(0, 10, Sort.by(Sort.Order.desc("viewCount")));
-        Page<FreelancerInfo.List> page = freelancerDslRepository.getFreelancers(pageable);
+        Page<FreelancerInfo.List> page = freelancerDslRepository.getFreelancerInfoPages(pageable);
 
         List<FreelancerInfo.List> freelancers = page.getContent();
 
@@ -112,7 +112,7 @@ class FreelancerDslRepositoryTest {
     @Test
     void sortByExposedAtDesc() {
         PageRequest pageable = PageRequest.of(0, 10, Sort.by(Sort.Order.desc("exposedAt")));
-        Page<FreelancerInfo.List> page = freelancerDslRepository.getFreelancers(pageable);
+        Page<FreelancerInfo.List> page = freelancerDslRepository.getFreelancerInfoPages(pageable);
 
         List<FreelancerInfo.List> freelancers = page.getContent();
 

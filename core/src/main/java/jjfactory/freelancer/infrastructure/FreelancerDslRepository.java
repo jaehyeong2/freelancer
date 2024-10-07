@@ -24,7 +24,7 @@ import static jjfactory.freelancer.domain.QFreelancer.*;
 public class FreelancerDslRepository {
     private final JPAQueryFactory queryFactory;
 
-    public Page<FreelancerInfo.List> getFreelancers(Pageable pageable){
+    public Page<FreelancerInfo.List> getFreelancerInfoPages(Pageable pageable){
         List<OrderSpecifier<?>> orderSpecifiers = getOrderSpecifiers(pageable);
 
         List<FreelancerInfo.List> result = queryFactory.select(Projections.fields(FreelancerInfo.List.class,

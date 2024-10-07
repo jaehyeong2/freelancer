@@ -9,4 +9,5 @@ public interface FreelancerReader {
     Optional<Freelancer> findById(Long id);
     Freelancer findByIdOrThrow(Long id);
     Page<FreelancerInfo.List> findPage(Pageable pageable);
+    Page<Freelancer> findTopFreelancersByViewCount(int limit);
 }
